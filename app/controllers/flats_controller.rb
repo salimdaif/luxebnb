@@ -3,10 +3,9 @@ class FlatsController < ApplicationController
     @flats = Flat.all
   end
   def search
-    @availablity = Availability.where()
-    @flats= Flat.where()
-  end
 
+     @flats= Flat.search(params)
+   end
   def show
     @flat = Flat.find(params[:id])
   end

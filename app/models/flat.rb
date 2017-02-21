@@ -5,4 +5,14 @@ class Flat < ApplicationRecord
   belongs_to :user
   has_many :book
   has_many :availabilities
+
+  def self.search(params)
+
+    Flat.joins(:availabilities).where(
+        'start_date >= :startd AND
+        end_time <= :end AND
+        city = :city AND
+        capacity >= :capacity',{startd: params[:start_date], end: params[:end_time], city: params[:city], capacity: params[:capacity]}
+      )
+  end
 end
