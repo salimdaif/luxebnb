@@ -1,0 +1,12 @@
+<h1>Flats#index</h1>
+<% @flats.each do |flat| %>
+      <h2><%= flat.title %></h2>
+      <p><h4>description: </h4><%= flat.desc %></p>
+      <p><h4>Address: </h4><%= flat.address %></p>
+      <p><h4>city: </h4><%= flat.city %></p>
+      <p><h4>capacity: </h4><%= flat.capacity %></p>
+      <p><h4>room number: </h4><%= flat.room_number %></p>
+      <p><h4>bathroom: </h4><%= flat.bathroom_number %></p>
+
+      <%= link_to "See details", flat, class: "btn btn-primary"%>
+      <% end %>

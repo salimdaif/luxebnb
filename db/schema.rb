@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20170221152637) do
     t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "city"
+    t.string   "address"
     t.index ["user_id"], name: "index_flats_on_user_id", using: :btree
   end
 
