@@ -1,0 +1,9 @@
+<h1>Hello <%=current_user.first_name%> !</h1>
+
+<%= simple_form_for [@user] do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.submit "Confirm Changes", class: "btn btn-primary" %>
+<% end %>
+<br>
+<%= link_to "Back to Profile", user_path(@user), class: "btn btn-primary"%>
