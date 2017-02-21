@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
+gem "simple_calendar", "~> 2.0"
 gem 'omniauth-facebook'
 gem 'faker'
 gem 'devise'

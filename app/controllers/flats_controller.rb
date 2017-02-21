@@ -7,7 +7,9 @@ class FlatsController < ApplicationController
      @flats= Flat.search(params)
    end
   def show
+
     @flat = Flat.find(params[:id])
+    @available = Availability.find_by(flat_id: @flat.id)
   end
 
   def new
