@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :pages, only: [:index]
   get '/search', to: 'flats#search'
-  
+
   resources :users, only: [:show, :edit, :update]
   resources :flats do
     resources :bookings, only: [:new, :create, :edit, :update, :destroy]
