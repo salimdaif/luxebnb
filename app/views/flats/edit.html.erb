@@ -1,1 +1,13 @@
 <h2>this is the edit page</h2>
+<%= simple_form_for @flat do |f| %>
+  <%= f.input :title %>
+  <%= f.input :desc %>
+  <%= f.input :city %>
+  <%= f.input :address %>
+  <%= f.input :capacity, collection: [0,1,2,3,4,5,6,7,8] %>
+  <%= f.input :room_number, collection: [0,1,2,3,4,5] %>
+  <%= f.input :bed_number, collection: [0,1,2,3,4,5] %>
+  <%= f.input :bathroom_number, collection: [0,1,2,3,4,5] %>
+  <%= f.input :price_night %>
+  <%= f.button :submit %>
+<% end %>
