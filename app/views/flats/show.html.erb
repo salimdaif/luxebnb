@@ -1,2 +1,13 @@
 <h1>Flats#show</h1>
 <p>Find me in app/views/flats/show.html.erb</p>
+
+<h2><%= @flat.title %></h2>
+      <p><h4>description: </h4><%= @flat.desc %></p>
+      <p><h4>Address: </h4><%= @flat.address %></p>
+      <p><h4>city: </h4><%= @flat.city %></p>
+      <p><h4>capacity: </h4><%= @flat.capacity %></p>
+      <p><h4>number of rooms: </h4><%= @flat.room_number %></p>
+      <p><h4>bathroom: </h4><%= @flat.bathroom_number %></p>
+      <p><h4>number of beds: </h4><%= @flat.bed_number %></p>
+      <p><h4>nightly price: </h4><h5><%= @flat.price_night %></h5></p>
+      <%= link_to "edit", edit_flat_path(@flat), class: "btn btn-primary"%>
