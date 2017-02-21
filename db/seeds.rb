@@ -7,9 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-usr1 = User.new(last_name: 'lastone', first_name: "this", email: "wioioiw@wooow.org")
-usr1.password = "1234567"
-usr1.save!
+
 
 
 10.times do
@@ -23,7 +21,7 @@ usr1.save!
     price_night: (100..500).to_a.sample,
     city: ["rio", "barcelona", "paris", "sao paulo"].sample,
     address: Faker::Address.street_address,
-    user_id: usr1.id
+    user_id: 3
   )
   flat.save!
   availablity = Availability.new(

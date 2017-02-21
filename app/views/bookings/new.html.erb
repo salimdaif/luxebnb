@@ -1,0 +1,22 @@
+<h1>Confirmation for <%= @booking.flat.title %>  </h1>
+
+<h3>1.Extra Services</h3>
+<ul>
+  <li>Daily Cleaning</li>
+  <li>Gourmet Breakfast</li>
+  <li>Limo Transport</li>
+</ul>
+
+<h3>2.Payment</h3>
+Credit Card info form
+
+From: <%= @booking.start_date %>
+To: <%= @booking.end_date %>
+Total Price: <%= @booking.flat.price_night%>
+<%= link_to "CONFIRM", user_path(current_user), class: "btn btn-primary"%>
+
+
+
+
+
+
