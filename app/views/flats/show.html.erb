@@ -1,15 +1,127 @@
-<h1>Flats#show</h1>
-<p>Find me in app/views/flats/show.html.erb</p>
+
 
 <h2><%= @flat.title %></h2>
 
 
 <% @flat.photos.each do |photo| %>
-  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+  <%= cl_image_tag photo.path, width: 600, height: 400, crop: :fill %>
 <% end %>
 
 
-      <p><h4>description: </h4><%= @flat.desc %></p>
+
+<div class="header-flat">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-1">
+        <div class="header-flat-details">
+          <div class="header-flat-owner  text-center">
+
+          </div>
+          <div class="header-flat-name">
+            <h1><%= @flat.title.upcase %></h1>
+            <p><%= @flat.address %>,  <%= @flat.city %></p>
+            <ul class="spec-list clearfix list-inline">
+              <li class="spec-list-item">
+                <img class="img" src="https://cdn.oasiscollections.com/images/property_page/location.png" alt="">
+                <div class="text ng-binding"><%= @flat.city.capitalize %></div>
+              </li>
+              <li class="spec-list-item">
+                <img class="img" src="https://cdn.oasiscollections.com/images/property_page/bedroom.png" alt="">
+                <div class="text ng-binding"><%= @flat.room_number %> bedrooms</div>
+              </li>
+              <li class="spec-list-item">
+                <img class="img" src="https://cdn.oasiscollections.com/images/property_page/bathroom.png" alt="">
+                <div class="text ng-binding"><%= @flat.bathroom_number %> bathrooms</div>
+              </li> <li class="spec-list-item"> <img class="img" src="https://cdn.oasiscollections.com/images/property_page/guest.png" alt="">
+              <div class="text ng-binding"><%= @flat.capacity %> guests</div>
+            </li>
+            <!-- <li class="spec-list-item">
+              <img class="img" src="https://cdn.oasiscollections.com/images/property_page/dimension.png" alt="">
+              <div class="text ng-binding">50 M2</div>
+            </li> -->
+          </ul>
+            <!-- <i class="fa fa-star" style="color: #ffb400"></i>
+
+            <i class="fa fa-star" style="color: #ffb400"></i>
+            <i class="fa fa-star" style="color: #ffb400"></i>
+            <i class="fa fa-star" style="color: #ffb400"></i>
+            <i class="fa fa-star" style="color: #cacccd"></i> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 list-inline">
+        <form action="#" >
+          <h2>Book this flat</h2>
+          <div class="form-group">
+
+
+          <h4 style="text-center"><%= @flat.price_night %>$ /night</h4>
+
+          <%= link_to "BOOK NOW", new_flat_booking_path(@flat), class: "btn btn-primary"%>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="flat-description">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+        <h2>About this flat</h2>
+        <p>
+        <%= @flat.desc %>
+        </p>
+
+        <hr>
+        <div class="row" id="flat-data">
+          <!-- <div class="col-xs-12 col-sm-2">
+            The Space
+          </div> -->
+          <!-- <div class="col-xs-12 col-sm-4">
+            <ul class="list-unstyled">
+              <li>Accommodates:  <strong>2</strong></li>
+              <li>Bathrooms:  <strong>1</strong></li>
+              <li>Bed type:  <strong>Real Bed</strong></li>
+              <li>Bedrooms:  <strong>1</strong></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <ul class="list-unstyled">
+              <li>Beds: <strong>1</strong></li>
+              <li>Property type: <strong>Apartment</strong></li>
+              <li>Room type: <strong>Entire home/apt</strong></li>
+            </ul>
+          </div> -->
+        </div>
+        <hr>
+        <div class="row" id="flat-data">
+          <div class="col-xs-12 col-sm-2">
+            Amenities
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <ul class="list-unstyled">
+              <li><i class="fa fa-cutlery"></i><strong>Kitchen</strong></li>
+              <li><i class="fa fa-wifi"></i><strong>Wifi</strong></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <ul class="list-unstyled">
+              <li><i class="fa fa-desktop"></i><strong>TV</strong></li>
+              <li><i class="fa fa-glass"></i><strong>Welcome drink</strong></li>
+            </ul>
+          </div>
+          <div id="calendar"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+     <!--  <p><h4>description: </h4><%= @flat.desc %></p>
       <p><h4>Address: </h4><%= @flat.address %></p>
       <p><h4>city: </h4><%= @flat.city %></p>
       <p><h4>capacity: </h4><%= @flat.capacity %></p>
@@ -18,10 +130,10 @@
       <p><h4>number of beds: </h4><%= @flat.bed_number %></p>
       <p><h4>nightly price: </h4><h5><%= @flat.price_night %></h5></p>
 
+ -->
 
-
-
-      <div id="calendar"></div>
+<!--
+      <div id="calendar"></div> -->
 <script >
       $('#calendar').fullCalendar({
     events: [
@@ -34,5 +146,5 @@
 });
 </script>
 
-      <%= link_to "BOOK NOW", new_flat_booking_path(@flat), class: "btn btn-primary"%>
+
 

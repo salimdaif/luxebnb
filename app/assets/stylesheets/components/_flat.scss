@@ -1,0 +1,79 @@
+#flat-description {
+  background: #F5F5F5;
+  padding: 50px 0;
+  padding-bottom: 100px;
+  font-size: 14px;
+  color: #555555; }
+
+/* line 8, /Users/boris/code/lewagon/middleman-airbnb/source/stylesheets/pages/_flat.scss */
+#flat-description h2 {
+  font-size: 18px;
+  color: #333333; }
+
+/* line 12, /Users/boris/code/lewagon/middleman-airbnb/source/stylesheets/pages/_flat.scss */
+#flat-data {
+  font-weight: normal;
+  font-size: 12px;
+  color: #797373; }
+
+/* line 17, /Users/boris/code/lewagon/middleman-airbnb/source/stylesheets/pages/_flat.scss */
+#flat-data strong {
+  margin-left: 9px; }
+
+/* line 20, /Users/boris/code/lewagon/middleman-airbnb/source/stylesheets/pages/_flat.scss */
+#flat-data i {
+  font-size: 20px;
+  color: #9B9B9B;
+  width: 20px;
+  text-align: center; }
+
+/* line 26, /Users/boris/code/lewagon/middleman-airbnb/source/stylesheets/pages/_flat.scss */
+#flat-data li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px; }
+
+.header-flat {
+  border: 1px solid #dce0e0; }
+
+/* line 4, /Users/boris/code/lewagon/middleman-airbnb/source/stylesheets/components/_header.scss */
+.header-flat-details {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  padding-left: 0; }
+
+/* line 10, /Users/boris/code/lewagon/middleman-airbnb/source/stylesheets/components/_header.scss */
+.header-flat p {
+  font-weight: normal;
+  font-size: 14px;
+  color: #777777; }
+
+/* line 15, /Users/boris/code/lewagon/middleman-airbnb/source/stylesheets/components/_header.scss */
+.header-flat h1 {
+  font-size: 18px;
+  margin-top: 0; }
+
+/* line 19, /Users/boris/code/lewagon/middleman-airbnb/source/stylesheets/components/_header.scss */
+.header-flat-owner {
+  padding: 20px; }
+
+/* line 22, /Users/boris/code/lewagon/middleman-airbnb/source/stylesheets/components/_header.scss */
+.header-flat form {
+  margin: 20px 0;
+  margin-right: 0;
+  background: #F4F4F4;
+  padding: 15px;
+  border-radius: 3px; }
+
+ .clearfix {
+    content: " ";
+    display: table;
+  }
+
+ .spec-list {
+    padding: 0 30px;
+    list-style: none;
+    margin-top: 10px;
+    text-align: center;
+}
