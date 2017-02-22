@@ -21,18 +21,18 @@
 
 
 
-      <div id="calendar"></div>
+<!--       <div id="calendar"></div>
 <script >
       $('#calendar').fullCalendar({
     events: [
         {
             title  : 'available',
-            start  : '<%= @available.start_date.strftime("%Y-%m-%d") %>',
-            end    : '<%= @available.end_time.strftime("%Y-%m-%d") %>'
+            start  : '<%# @available.start_date.strftime("%Y-%m-%d") %>',
+            end    : '<%# @available.end_time.strftime("%Y-%m-%d") %>'
         }
     ]
 });
-</script>
+</script> -->
 
       <%= link_to "BOOK NOW", new_flat_booking_path(@flat), class: "btn btn-primary"%>
 
