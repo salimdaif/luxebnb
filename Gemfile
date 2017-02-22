@@ -1,7 +1,16 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
-gem "simple_calendar", "~> 2.0"
+gem "geocoder"
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
+gem 'cloudinary'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+
+
+
 gem 'omniauth-facebook'
 gem 'faker'
 gem 'devise'
@@ -11,6 +20,15 @@ gem 'pg'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'redis'
+
+
+gem "coffee-rails"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
 
 gem 'sass-rails'
 gem 'jquery-rails'

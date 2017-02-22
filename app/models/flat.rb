@@ -6,6 +6,11 @@ class Flat < ApplicationRecord
   has_many :bookings
   has_many :availabilities, dependent: :destroy
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
+  has_attachments :photos, maximum: 20
+
   def self.search(params)
 
     results = Flat.joins(:availabilities)
