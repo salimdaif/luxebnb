@@ -1,4 +1,6 @@
 
+<h3>Find your comfort everywhere</h3>
+
 <form action="/search" method="GET">
   <input type="text" name="city" placeholder="City" />
   <input type="date" name="start_date"/>
@@ -7,6 +9,16 @@
   <input type="submit" value="search" min="1" max="8" value="1"/>
 </form>
 <br>
+
+<%= link_to "add a flat", new_flat_path, class: "btn btn-primary"%>
+<% @flats.each do |flat| %>
+      <h3><%= flat.title %></h3>
+      <p><h4>description: </h4><%= flat.desc %></p>
+      <p><h4>Address: </h4><%= flat.address %></p>
+      <p><h4>city: </h4><%= flat.city %></p>
+      <p><h4>capacity: </h4><%= flat.capacity %></p>
+      <p><h4>room number: </h4><%= flat.room_number %></p>
+      <p><h4>bathroom: </h4><%= flat.bathroom_number %></p>
 
 
 <div class="container-fluid">
