@@ -257,9 +257,9 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  bootstrap3-datetimepicker-rails (~> 4.17.43)
   cloudinary
   coffee-rails
-  bootstrap3-datetimepicker-rails (~> 4.17.43)
   devise
   faker
   figaro
