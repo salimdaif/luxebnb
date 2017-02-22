@@ -2,3 +2,15 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin: 0 0 70px; /* bottom = footer height */
+    padding: 25px;
+}
+html,body {
+  margin:0;
+  padding:0;
+}

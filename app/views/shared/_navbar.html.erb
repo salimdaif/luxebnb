@@ -17,8 +17,9 @@
 
     <%= form_tag(flats_path, method: 'get', class: 'navbar-form navbar-right') do %>
     <%= search_field_tag 'search', nil, class: 'form-control', placeholder: 'Search City'  %>
-    <%= submit_tag "Submit", class: 'navbar-wagon-search-btn hidden', :name => nil %>
+    <%= submit_tag "Submit", class: 'navbar-wagon-search-btn hidden', :name => nil%>
     <i class="fa fa-search"></i>
+
     <% end %>
 
     <!-- Different navigation if login or not -->

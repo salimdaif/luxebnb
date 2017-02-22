@@ -1,7 +1,7 @@
 /* Main class */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
+  background: $eggs;
   transition: all 0.3s ease;
   display: flex;
   height: 70px;
@@ -52,17 +52,18 @@
 .navbar-wagon-button {
   margin-left: 10px;
   padding: 0 20px;
-  border-radius: 20em;
+  border-radius: 2em;
   line-height: 40px;
-  background-color: rgb(194, 174, 139);
-  color: white;
+  background-color: $eggs;
+  color: black;
   font-size: 14px;
-  border: 2px solid #4A4C4C;
+  border: 2px solid $gold;
 }
 .navbar-wagon-button:hover {
   color: white;
-  background: #8C7A39;
-  border-color: #8C7A39; ;
+  background: $gold;
+  border: 2px solid;
+  border-color: $gold;
 }
 
 /* Navbar search form */
