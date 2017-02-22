@@ -3,12 +3,13 @@
   background: #494949;
   padding: 10px 0;
   color: #CCCCCC;
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   height: 70px;
   width: 100%;
-  overflow:hidden;
+  top: 100%;
+  // overflow: hidden;
 }
 #footer p {
   margin-top: 17px;

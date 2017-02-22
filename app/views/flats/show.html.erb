@@ -137,8 +137,8 @@
     events: [
         {
             title  : 'available',
-            start  : '<%# @available.start_date.strftime("%Y-%m-%d") %>',
-            end    : '<%# @available.end_time.strftime("%Y-%m-%d") %>'
+            start  : '<%= @available.start_date.strftime("%Y-%m-%d") %>',
+            end    : '<%= @available.end_time.strftime("%Y-%m-%d") %>'
         }
     ]
 });

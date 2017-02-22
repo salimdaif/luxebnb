@@ -17,8 +17,8 @@
   <img src= "http://cdn5.viralscape.com/wp-content/uploads/2014/03/unconventional-home-69.jpg"  class= "product-image hidden-xs">
   <div class='product-body'>
 <h3> <%= booking.flat.title %></h3>
-<p> From: <%= booking.start_date %> </p>
-<p> To: <%= booking.end_date %> </p>
+<p> From: <%= booking.start_date.strftime("%Y-%m-%d") %> </p>
+<p> To: <%= booking.end_date.strftime("%Y-%m-%d") %> </p>
 <% booking.services.each do |service| %>
 <p> Requested Services: <%= service.full_description %> </p>
 <%end%>
