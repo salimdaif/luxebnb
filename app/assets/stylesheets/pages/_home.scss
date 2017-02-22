@@ -6,14 +6,16 @@ html {
     position: relative;
     min-height: 100%;
 }
+
 body {
-    margin: 0 0 70px; /* bottom = footer height */
+    margin: 60px 0 70px; /* bottom = footer height */
     padding: 25px;
 }
-html,body {
-  margin:0;
-  padding:0;
-}
+
+// html,body {
+//   margin:0;
+//   padding:0;
+// }
 
 .padded {
   padding: 100px 0;
