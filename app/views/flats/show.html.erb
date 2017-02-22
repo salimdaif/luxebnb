@@ -2,6 +2,13 @@
 <p>Find me in app/views/flats/show.html.erb</p>
 
 <h2><%= @flat.title %></h2>
+
+
+<% @flat.photos.each do |photo| %>
+  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<% end %>
+
+
       <p><h4>description: </h4><%= @flat.desc %></p>
       <p><h4>Address: </h4><%= @flat.address %></p>
       <p><h4>city: </h4><%= @flat.city %></p>
@@ -10,5 +17,22 @@
       <p><h4>bathroom: </h4><%= @flat.bathroom_number %></p>
       <p><h4>number of beds: </h4><%= @flat.bed_number %></p>
       <p><h4>nightly price: </h4><h5><%= @flat.price_night %></h5></p>
+
+
+
+
+      <div id="calendar"></div>
+<script >
+      $('#calendar').fullCalendar({
+    events: [
+        {
+            title  : 'available',
+            start  : '<%= @available.start_date.strftime("%Y-%m-%d") %>',
+            end    : '<%= @available.end_time.strftime("%Y-%m-%d") %>'
+        }
+    ]
+});
+</script>
+
       <%= link_to "BOOK NOW", new_flat_booking_path(@flat), class: "btn btn-primary"%>
 
