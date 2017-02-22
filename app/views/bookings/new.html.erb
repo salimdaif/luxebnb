@@ -1,16 +1,16 @@
 <h1>Confirmation for <%= @booking.flat.title %>  </h1>
 
-<h3>1.Extra Services</h3>
 
-<%# simple_form_for [@booking, @service] do |f| %>
-  <%# f.association :service,  type: "checkbox"%>
-<%# end %>
+<%= simple_form_for @booking, :url => flat_bookings_path, :method => :post do |f| %>
 
-<ul>
-  <li>Daily Cleaning</li>
-  <li>Gourmet Breakfast</li>
-  <li>Limo Transport</li>
-</ul>
+  <h3>From</h3>
+  <%=f.input :start_date, as: :date, html5: true %>
+  <h3>To </h3>
+  <%=f.input :end_date, as: :date, html5: true %>
+  <h3>1.Extra Services</h3>
+  <%= f.association :services,  as: "check_boxes", label_method: :full_description %>
+  <%= f.submit "CONFIRM" %>
+<% end %>
 
 <h3>2.Payment</h3>
 Credit Card info form
@@ -18,7 +18,6 @@ Credit Card info form
 From: <%= @booking.start_date %>
 To: <%= @booking.end_date %>
 Total Price: <%= @booking.flat.price_night%>
-<%= link_to "CONFIRM", user_path(current_user), class: "btn btn-primary"%>
 
 
 

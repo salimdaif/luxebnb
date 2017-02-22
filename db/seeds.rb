@@ -8,9 +8,9 @@
 
 require 'faker'
 
-Service.create(price: "700", desc: Gourmet Breakfast)
-Service.create(price: "900", desc: Limo Transport)
-Service.create(price: "500", desc: Daily Cleaning)
+Service.create(price: 700, desc: "Gourmet Breakfast")
+Service.create(price: 900, desc: "Limo Transport")
+Service.create(price: 500, desc: "Daily Cleaning")
 
 
 

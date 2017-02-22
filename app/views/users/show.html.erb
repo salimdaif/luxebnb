@@ -6,7 +6,11 @@
 
 <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary" %>
 
-<h3> My Flats: </h3>
+<h3> Pending Requests </h3>
+
+
+
+<h3> My Flats </h3>
 <ul>
 <% @user.flats.each do |flat| %>
 <li> <%= flat.title %> </li>
