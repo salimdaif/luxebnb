@@ -9,7 +9,6 @@
   padding-top: 5em;
   padding-bottom: 5em;
 }
-
 // Backgrounds
 .bg-black {
   background: #4a4a4a;
@@ -22,4 +21,27 @@
 }
 .bg-dark-blue {
   background: #3b5998;
+}
+// Buttons
+.wagon-button {
+  margin-left: 10px;
+  padding: 0 20px;
+  border-radius: 2em;
+  line-height: 47px;
+  // background-color: #0f1626;
+  background-color: $eggs;
+  color: black;
+  font-size: 14px;
+  border: 2px solid #ab987a;
+}
+.wagon-button:hover {
+  color: white;
+  background: $gold;
+  border: 2px solid;
+  border-color: $gold;
+}
+//Form
+.form-control:focus {
+  border-color: $gold;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(171, 152, 122, 0.6);
 }
