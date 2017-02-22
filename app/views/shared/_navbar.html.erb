@@ -8,7 +8,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Search form -->
-<!--     <form action="" class="navbar-wagon-search">
+<!--<form action="" class="navbar-wagon-search">
       <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
       <button type="submit" class="navbar-wagon-search-btn">
         <i class="fa fa-search"></i>
@@ -16,10 +16,9 @@
     </form> -->
 
     <%= form_tag(flats_path, method: 'get', class: 'navbar-form navbar-right') do %>
-    <%= search_field_tag 'search', nil, class: 'form-control', placeholder: 'Search City'  %>
-    <%= submit_tag "Submit", class: 'navbar-wagon-search-btn hidden', :name => nil%>
-    <i class="fa fa-search"></i>
-
+      <%= search_field_tag 'search', nil, class: 'form-control', placeholder: 'Search City'  %>
+      <%= submit_tag "Submit", class: 'navbar-wagon-search-btn hidden', :name => nil%>
+      <i class="fa fa-search"></i>
     <% end %>
 
     <!-- Different navigation if login or not -->
@@ -57,15 +56,17 @@
         </div>
       </div>
 
+      <!-- Button (call-to-action) -->
+      <%= link_to "Create Listing", new_flat_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+
     <% else %>
 
       <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
     <% end %>
 
-    <!-- Button (call-to-action) -->
-    <%= link_to "Create Listing", new_flat_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
