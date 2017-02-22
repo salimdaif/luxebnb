@@ -1,2 +1,16 @@
-<h1>Bookings#edit</h1>
-<p>Find me in app/views/bookings/edit.html.erb</p>
+<h1>Confirmation for <%= @booking.flat.title %>  </h1>
+
+<%= simple_form_for @booking, :url => flat_booking_path, :method => :patch do |f| %>
+
+  <h3>From</h3>
+  <%=f.input :start_date, as: :date, html5: true %>
+  <h3>To </h3>
+  <%=f.input :end_date, as: :date, html5: true %>
+  <h3>1.Extra Services</h3>
+  <%= f.association :services,  as: "check_boxes", label_method: :full_description %>
+  <%= f.submit "UPDATE BOOKING" %>
+<% end %>
+
+From: <%= @booking.start_date %>
+To: <%= @booking.end_date %>
+Total Price: <%= @booking.flat.price_night%>
