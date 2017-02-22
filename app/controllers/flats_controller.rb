@@ -6,13 +6,15 @@ class FlatsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@flats) do |flat, marker|
       marker.lat flat.latitude
       marker.lng flat.longitude
-      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+      #marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     if params[:search]
       @flats = Flat.where("lower(city) LIKE ?", "%#{params[:search].downcase}%")
     else
       @flats = Flat.all
     end
   end
+end
+
   def search
 
      @flats= Flat.search(params)
@@ -21,8 +23,6 @@ class FlatsController < ApplicationController
 
     @flat = Flat.find(params[:id])
     @available = Availability.find_by(flat_id: @flat.id)
-
-
      # @hash = Gmaps4rails.build_markers(@flat)
      # do |flat, marker|
      #  marker.lat flat.latitude
