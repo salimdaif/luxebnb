@@ -15,3 +15,4 @@ $('#calendar').fullCalendar({});
 $(document).ready(function() {
   $('.attachinary-input').attachinary();
 });
+

@@ -1,35 +1,41 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon navbar-wagon-fixed">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png" %>
+    <%= image_tag "http://www.riadcharai.com/images/riadcharailogo_white.png?crc=3767519529" %>
   <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Search form -->
-    <form action="" class="navbar-wagon-search">
+<!--<form action="" class="navbar-wagon-search">
       <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
       <button type="submit" class="navbar-wagon-search-btn">
         <i class="fa fa-search"></i>
       </button>
-    </form>
+    </form> -->
+
+    <%= form_tag(flats_path, method: 'get', class: 'navbar-form navbar-right') do %>
+      <%= search_field_tag 'search', nil, class: 'form-control', placeholder: 'Search City'  %>
+      <%= submit_tag "Submit", class: 'navbar-wagon-search-btn hidden', :name => nil%>
+      <i class="fa fa-search"></i>
+    <% end %>
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
       <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+<!--       <%# link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
         <div class="badge-container">
           <i class="fa fa-envelope-o"></i>
           <div class="badge badge-blue">3</div>
         </div>
-      <% end %>
+      <%# end %> -->
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag "https://image.jimcdn.com/app/cms/image/transf/dimension=210x1024:format=png/path/se12fd019044a56a6/image/ia173fb52e48db2e1/version/1385277914/image.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to user_path(current_user) do %>
@@ -50,15 +56,17 @@
         </div>
       </div>
 
+      <!-- Button (call-to-action) -->
+      <%= link_to "Create Listing", new_flat_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+
     <% else %>
 
       <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
     <% end %>
 
-    <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
