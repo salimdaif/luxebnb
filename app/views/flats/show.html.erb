@@ -37,11 +37,13 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
+    <% count = 1 %>
    <% @flat.photos.each do |photo| %>
-      <div class="item active"><%= cl_image_tag photo.path, width: 1000, height: 400, crop: :fill   %></div>
-      <% break end %>
-      <% @flat.photos.each do |photo| %>
-      <div class="item"><%= cl_image_tag photo.path, width: 1000, height: 400, crop: :fill %></div>
+      <div class="item <% if count == 1 %>active<% end %>"><%= cl_image_tag photo.path, width: 1000, height: 400, crop: :fill   %></div>
+      <% count += 1 %>
+      <%# break end %>
+      <%# @flat.photos.each do |photo| %>
+      <!-- <div class="item"><%#= cl_image_tag photo.path, width: 1000, height: 400, crop: :fill %></div> -->
       <% end %>
 
     </div>
