@@ -31,11 +31,13 @@ end
 
   def new
     @flat = Flat.new
+    @flat.availabilities.build
   end
 
   def create
     @flat = Flat.new(flat_params)
     @flat.user = current_user
+
     if @flat.save
       redirect_to flats_path
     else
@@ -66,6 +68,6 @@ end
 
   def flat_params
 
-    params.require(:flat).permit(:title, :desc, :capacity, :room_number, :bed_number, :bathroom_number, :price_night, :city, :address, photos: [] )
+    params.require(:flat).permit(:title, :desc, :capacity, :room_number, :bed_number, :bathroom_number, :price_night, :city, :address, photos: [], availabilities_attributes: [:id, :start_date, :end_time] )
   end
 end
