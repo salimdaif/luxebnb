@@ -1,11 +1,14 @@
-
-<h1>Welcome <%= current_user.first_name %> !</h1>
-<p>Profile Page </p>
-
-<% avatar_url = current_user.facebook_picture_url || "http://placehold.it/150x150" %>
-<%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+<div class="text-center">
+<h2><%= current_user.first_name %> <%= current_user.last_name %> </h2>
+<%=image_tag "https://s-media-cache-ak0.pinimg.com/originals/63/14/35/631435bab470401145af0c2788b2b643.jpg", class: " avatar-large"%>
+<br>
+<br>
 
 <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary" %>
+
+</div>
+
+
 
 <h3> Pending Requests (<%= @user.bookings.count %>)</h3>
 <% @user.bookings.each do |booking| %>
@@ -24,8 +27,8 @@
 <%end%>
 </div>
   <ul class="list-inline">
-    <li> <%= link_to "Edit", edit_flat_booking_path(booking.flat, booking), class: "btn btn-primary" %> </li>
-    <li> <%=link_to "Cancel Reservation", flat_booking_path(booking.flat, booking), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-small" %> </li>
+    <li> <%= link_to '<i class="fa fa-pencil fa-lg" aria-hidden="true"></i>'.html_safe, edit_flat_booking_path(booking.flat, booking) %> </li>
+    <li> <%=link_to '<i class="fa fa-trash fa-lg" aria-hidden="true"></i>'.html_safe, flat_booking_path(booking.flat, booking), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-small" %> </li>
   </ul>
 </div>
  </div>
@@ -49,8 +52,8 @@
 <p> <%= flat.price_night %> </p>
 </div>
   <ul class="list-inline">
-<li> <%= link_to "Edit", edit_flat_path(flat), class: "btn btn-primary" %> </li>
-<li> <%=link_to "Delete Listing", flat_path(flat), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-small" %> </li>
+<li> <%= link_to '<i class="fa fa-pencil fa-lg" aria-hidden="true"></i>'.html_safe, edit_flat_path(flat)%> </li>
+<li> <%=link_to '<i class="fa fa-trash fa-lg" aria-hidden="true"></i>'.html_safe, flat_path(flat), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-small" %> </li>
  </ul>
 </div>
  </div>
