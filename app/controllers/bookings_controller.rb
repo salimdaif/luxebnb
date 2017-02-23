@@ -7,10 +7,7 @@ class BookingsController < ApplicationController
   def create
     @booking = current_user.bookings.new(bookings_params)
     @booking.flat = Flat.find(params[:flat_id])
-
-    if @booking.save
-      redirect_to user_path(current_user)
-    else
+    unless @booking.save
       render :new
     end
   end
