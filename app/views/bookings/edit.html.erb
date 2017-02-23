@@ -1,16 +1,24 @@
-<h1>Confirmation for <%= @booking.flat.title %>  </h1>
+<br>
+<br>
+<br>
+
+<div class="header-flat">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+<h3>Confirmation for <%= @booking.flat.title %>  </h3>
 
 <%= simple_form_for @booking, :url => flat_booking_path, :method => :patch do |f| %>
 
-  <h3>From</h3>
+  <h4>From</h4>
   <%=f.input :start_date, as: :date, html5: true %>
-  <h3>To </h3>
+  <h4>To </h4>
   <%=f.input :end_date, as: :date, html5: true %>
-  <h3>1.Extra Services</h3>
+  <h4>Extra Services</h4>
   <%= f.association :services,  as: "check_boxes", label_method: :full_description %>
-  <%= f.submit "UPDATE BOOKING" %>
+  <%= f.submit "UPDATE BOOKING", class: "btn btn-primary" %>
 <% end %>
-
-From: <%= @booking.start_date %>
-To: <%= @booking.end_date %>
-Total Price: <%= @booking.flat.price_night%>
+      </div>
+    </div>
+  </div>
+</div>
