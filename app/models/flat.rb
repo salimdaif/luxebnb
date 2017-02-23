@@ -5,6 +5,7 @@ class Flat < ApplicationRecord
   belongs_to :user
   has_many :bookings, dependent: :destroy
   has_many :availabilities, dependent: :destroy
+  accepts_nested_attributes_for :availabilities
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
