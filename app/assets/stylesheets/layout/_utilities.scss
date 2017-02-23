@@ -4,11 +4,61 @@
  * Feel free to change them and create your own
  * ------------------------------------- */
 
+/* Wrappers and Containers */
+
+.wrapper-grey {
+  background: $eggs;
+}
+
+.wrapper-white {
+  background: white;
+}
+
+.container-tabbed-left {
+  width: 70%;
+  float: left;
+}
+
+.container-tabbed-right {
+  width: 30%;
+  float: right;
+}
+
+.container img {
+  width: 30%;
+  height: auto;
+}
+.container h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
 // Paddings
+
 .padded {
   padding-top: 5em;
   padding-bottom: 5em;
 }
+
+.padded-page {
+  padding: 1em;
+}
+
+.padded-item {
+  padding: 1em;
+}
+
+.padded-gap {
+  padding-top: 1em;
+}
+
+.padded-alt {
+  padding: 100px 0;
+  background-color: white;
+}
+
 // Backgrounds
 .bg-black {
   background: #4a4a4a;
@@ -22,6 +72,7 @@
 .bg-dark-blue {
   background: #3b5998;
 }
+
 // Buttons
 .wagon-button {
   margin-left: 10px;
@@ -40,8 +91,14 @@
   border: 2px solid;
   border-color: $gold;
 }
-//Form
+
+//Forms
 .form-control:focus {
   border-color: $gold;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(171, 152, 122, 0.6);
+}
+
+// Alignment
+.center {
+  text-align: center;
 }
