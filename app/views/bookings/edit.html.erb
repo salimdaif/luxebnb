@@ -11,7 +11,7 @@
   <h4>To </h4>
   <%=f.input :end_date, as: :date, html5: true %>
   <h4>Extra Services</h4>
-  <%= f.association :services,  as: "check_boxes", label_method: :full_description %>
+  <%= f.association :services,  as: "check_boxes", label_method: :full_description, :method => :post%>
   <%= f.submit "UPDATE BOOKING", class: "btn btn-primary" %>
 <% end %>
       </div>
