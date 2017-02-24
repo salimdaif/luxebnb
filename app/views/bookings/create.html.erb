@@ -36,14 +36,7 @@
             <div class='form-row'>
               <div class='col-md-12'>
                 <div class='form-control total btn btn-info'>
-                  Total:
-                  <% total = 0 %>
-                  <% days = (@booking.end_date.to_date - @booking.start_date.to_date).to_i %>
-                  <% @booking.services.each do |service| %>
-                    <% total += service.price * days %>
-                  <%end%>
-                  <% total += days * @booking.flat.price_night %>
-                  <span class='amount'> $<%= total %></span>
+                  <span class='amount'> $<%= @booking.bills.last.price %></span>
                 </div>
               </div>
             </div>
