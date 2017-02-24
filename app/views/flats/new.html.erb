@@ -1,7 +1,8 @@
 <div class="container-form center">
   <h3>New Listing</h3>
-  <div class="float-left tabbed">
-    <%= simple_form_for @flat do |f| %>
+  <%= simple_form_for @flat do |f| %>
+
+    <div class="float-left tabbed">
       <%= f.input :title, placeholder: "i.e. John Smith" %>
       <%= f.input :desc, placeholder: "i.e. Saint Barths Villa"  %>
       <%= f.input :city, placeholder: "i.e. Gustavia, Saint Barthélemy"  %>
@@ -19,8 +20,9 @@
       <%= f.input :bathroom_number, collection: (0..5) %>
       <%= f.input :photos, as: :attachinary %>
       <%= f.button :submit, class: "navbar-wagon-item navbar-wagon-button btn"%>
-    <% end %>
-  </div>
+    </div>
+    </div>
+  <% end %>
 </div>
 
 <%= content_for(:after_js) do %>
