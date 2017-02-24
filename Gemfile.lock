@@ -77,6 +77,9 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.4)
+    date_validator (0.9.0)
+      activemodel
+      activesupport
     debug_inspector (0.0.2)
     devise (4.2.0)
       bcrypt (~> 3.0)
@@ -260,6 +263,7 @@ DEPENDENCIES
   bootstrap3-datetimepicker-rails (~> 4.17.43)
   cloudinary
   coffee-rails
+  date_validator
   devise
   faker
   figaro
