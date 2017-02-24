@@ -94,6 +94,14 @@
               <br>
               <br>
               <div id="calendar"></div>
+
+            </div>
+            <div class="col-xs-12">
+              <br>
+              <br>
+              <hr>
+              <h2>Location :</h2>
+              <div id="map" style="width: 950px; height: 500px;"></div>
             </div>
           </div>
         </div>
@@ -101,7 +109,30 @@
     </div>
   </div>
 
-  <script >
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var coord = <%= raw @flat_coordinates.to_json %>;
+
+
+        var handler = Gmaps.build('Google', { markers: { clusterer: undefined }});
+        handler.buildMap({ internal: { id: 'map' } }, function(){
+          markers = handler.addMarkers([
+            {
+              "lat": coord.lat,
+              "lng": coord.lng,
+              "infowindow": "<h1><%= @flat.address %>"
+            }
+          ]);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+        });
+    });
+  <% end %>
+
+
+<script >
     $('#calendar').fullCalendar({
       events: [
       {
@@ -112,6 +143,11 @@
       ]
     });
   </script>
+
+<% end %>
+
+
+
 
 
 

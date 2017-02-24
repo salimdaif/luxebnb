@@ -28,12 +28,7 @@ class FlatsController < ApplicationController
 
     @flat = Flat.find(params[:id])
     @available = Availability.find_by(flat_id: @flat.id)
-     # @hash = Gmaps4rails.build_markers(@flat)
-     # do |flat, marker|
-     #  marker.lat flat.latitude
-     #  marker.lng flat.longitude
-      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
-    # end
+     @flat_coordinates = { lat: @flat.latitude, lng: @flat.longitude }
   end
 
   def new
