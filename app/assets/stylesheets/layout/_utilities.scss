@@ -17,13 +17,34 @@
 .container-tabbed-left {
   float: left;
   width: 70%;
-
 }
 
 .container-tabbed-right {
   float: right;
 }
 
+.container-form {
+  padding: 3em 20em;
+}
+
+.container-form-login {
+  padding: 3em 30em;
+}
+
+
+
+.tabbed {
+  padding: 2em;
+  width: 50%;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
 .container img {
   width: 30%;
   height: auto;
