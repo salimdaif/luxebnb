@@ -1,7 +1,8 @@
 class Flat < ApplicationRecord
 
   validates :capacity, :room_number, :bed_number, :price_night, :title,
-  :bathroom_number, :desc, presence: true
+  :bathroom_number, :address, :city, :desc, presence: true
+  validates :price_night, :numericality => { :greater_than_or_equal_to => 0 }
   belongs_to :user
   has_many :bookings, dependent: :destroy
   has_many :availabilities, dependent: :destroy
