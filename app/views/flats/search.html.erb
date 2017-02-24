@@ -1,11 +1,69 @@
-<% @flats.each do |flat| %>
-      <h2><%= flat.title %></h2>
-      <p><h4>description: </h4><%= flat.desc %></p>
-      <p><h4>Address: </h4><%= flat.address %></p>
-      <p><h4>city: </h4><%= flat.city %></p>
-      <p><h4>capacity: </h4><%= flat.capacity %></p>
-      <p><h4>room number: </h4><%= flat.room_number %></p>
-      <p><h4>bathroom: </h4><%= flat.bathroom_number %></p>
+<div class="padded-page">
+  <div class="padded-item">
+    <h3>Find your comfort everywhere</h3>
 
-      <%= link_to "See details", flat, class: "btn btn-primary"%>
-      <% end %>
+    <form action="/search" method="GET">
+      <input type="text" name="city" placeholder="City" />
+      <input type="date" name="start_date"/>
+      <input type="date" name="end_time"/>
+      <input type="number" name="capacity" placeholder="Capacity">
+      <input type="submit" value="search" min="1" max="8" value="1"/>
+    </form>
+  </div>
+</div>
+
+<div class="container-tabbed-left">
+
+  <div class="padded-gap">
+    <div class="container-fluid">
+      <div class="row">
+        <% @flats.each do |flat| %>
+          <%= link_to(flat) do %>
+            <div class="col-xs-12 col-sm-3">
+              <div class="card-list" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path flat.photos.first.try(:path) || "", height: 300, width: 400, crop: :fill %>');">
+                <div class="card-category" >
+                  <%= flat.title %>
+                </div>
+
+
+                <div class="card-description">
+                  <ul class="list-inline center">
+                    <li><i class="fa fa-users">       <%= flat.capacity %>        </i></li>
+                    <li><i class="fa fa-bed">         <%= flat.room_number %>     </i></li>
+                    <li><i class="fa fa-bath">        <%= flat.bathroom_number %> </i></li>
+                  </ul>
+                  <ul class="list-inline center">
+                    <li><i class="fa fa-map-marker">  <%= flat.city %>            </i></li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-tabbed-right">
+  <div class="padded-gap">
+    <div id="map" style="width: 48vh; height: 100vh;"></div>
+  </div>
+</div>
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  <% end %>
+<% end %>
