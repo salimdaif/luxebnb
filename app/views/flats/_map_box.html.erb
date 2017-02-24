@@ -1,0 +1,8 @@
+<div class="map_box">
+<div class="text-center ">
+  <h3><%= flat.title %></h3>
+  <p><%= flat.address %></p>
+  <%= cl_image_tag flat.photos.first.try(:path) || "", height: 300, width: 400, crop: :fill %>
+  <%= link_to "Details", flat_path(flat), target: :blank, class: "btn btn-warning" %>
+  </div>
+</div>
