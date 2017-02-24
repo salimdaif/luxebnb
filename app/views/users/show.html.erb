@@ -1,56 +1,79 @@
-<div class="padded-page">
-  <div class="text-center">
-    <h2><%= current_user.first_name %> <%= current_user.last_name %> </h2>
-    <%=image_tag "https://s-media-cache-ak0.pinimg.com/originals/63/14/35/631435bab470401145af0c2788b2b643.jpg", class: " avatar-large"%>
-    <br>
-    <br>
-    <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary" %>
+
+    <%# link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary" %>
+
+  <div class="profile-header-wrapper">
+    <div class="container profile-header-container text-center">
+      <div class="profile-header-infos">
+        <%=image_tag "http://i.pravatar.cc/150?img=54", class: "avatar-large"%>
+        <h1><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </h1>
+      </div>
+      <div class="tabs">
+        <a class="tab active" data-target="#pending-requests">
+          <h3> Pending Requests (<%= @user.bookings.count %>)</h3>
+        </a>
+        <a class="tab" data-target="#my-flats">
+          <h3> My Flats (<%= @user.flats.count %>) </h3>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container text-center">
+    <div class="tab-content" id="pending-requests">
+        <% @user.bookings.each do |booking| %>
+          <div class="product">
+            <div class='product-upvote'>
+              <div class="product-arrow"></div>
+              <div class='product-count'>Pending</div>
+            </div>
+            <%= cl_image_tag booking.flat.photos.first.try(:path) || "", height: 50, width: 90, crop: :fill, class:"product-image hidden-xs" %>
+            <div class='product-body'>
+              <h3> <%= booking.flat.title.capitalize %></h3>
+              <p> From: <%= booking.start_date.strftime("%Y-%m-%d") %> </p>
+              <p>   To: <%= booking.end_date.strftime("%Y-%m-%d") %> </p>
+              <% booking.services.each do |service| %>
+                <p> Requested Services: <%= service.full_description %> </p>
+              <%end%>
+            </div>
+            <ul class="list-inline">
+              <li> <%= link_to '<i class="fa fa-pencil fa-lg" aria-hidden="true"></i>'.html_safe, edit_flat_booking_path(booking.flat, booking) %> </li>
+              <li> <%=link_to '<i class="fa fa-trash fa-lg" aria-hidden="true"></i>'.html_safe, flat_booking_path(booking.flat, booking), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-small" %> </li>
+            </ul>
+          </div>
+        <%end%>
+    </div>
+    <div class="tab-content hidden" id="my-flats">
+        <% @user.flats.each do |flat| %>
+          <div class="product">
+            <div class='product-upvote'>
+              <div class="product-arrow"></div>
+              <div class='product-count'>Available</div>
+            </div>
+            <%= cl_image_tag flat.photos.first.try(:path) || "", height: 50, width: 90, crop: :fill, class:"product-image hidden-xs" %>
+            <div class='product-body' >
+              <h3> <%= flat.title.capitalize %> </h3>
+              <ul class="list-inline center">
+                <li><i class="fa fa-users">       <%= flat.capacity %>        </i></li>
+                <li><i class="fa fa-bed">         <%= flat.room_number %>     </i></li>
+                <li><i class="fa fa-bath">        <%= flat.bathroom_number %> </i></li>
+              </ul>
+              <p> $ <%= flat.price_night %> </p>
+            </div>
+            <ul class="list-inline">
+              <li> <%= link_to '<i class="fa fa-pencil fa-lg" aria-hidden="true"></i>'.html_safe, edit_flat_path(flat)%> </li>
+              <li> <%=link_to '<i class="fa fa-trash fa-lg" aria-hidden="true"></i>'.html_safe, flat_path(flat), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-small" %> </li>
+            </ul>
+         </div>
+        <%end%>
+    </div>
   </div>
 
 
 
-  <h3> Pending Requests (<%= @user.bookings.count %>)</h3>
-  <% @user.bookings.each do |booking| %>
-    <div class="product">
-      <div class='product-upvote'>
-        <div class="product-arrow"></div>
-        <div class='product-count'>Pending</div>
-      </div>
-      <%= cl_image_tag booking.flat.photos.first.try(:path) || "", height: 72, width: 120, crop: :fill, class:"product-image hidden-xs" %>
-      <div class='product-body'>
-        <h3> <%= booking.flat.title %></h3>
-        <p> From: <%= booking.start_date.strftime("%Y-%m-%d") %> </p>
-        <p> To: <%= booking.end_date.strftime("%Y-%m-%d") %> </p>
-        <% booking.services.each do |service| %>
-          <p> Requested Services: <%= service.full_description %> </p>
-        <%end%>
-      </div>
-      <ul class="list-inline">
-        <li> <%= link_to '<i class="fa fa-pencil fa-lg" aria-hidden="true"></i>'.html_safe, edit_flat_booking_path(booking.flat, booking) %> </li>
-        <li> <%=link_to '<i class="fa fa-trash fa-lg" aria-hidden="true"></i>'.html_safe, flat_booking_path(booking.flat, booking), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-small" %> </li>
-      </ul>
-    </div>
-  <%end%>
 
 
 
-  <h3> My Flats (<%= @user.flats.count %>) </h3>
-  <% @user.flats.each do |flat| %>
-    <div class="product">
-      <div class='product-upvote'>
-        <div class="product-arrow"></div>
-        <div class='product-count'>Available</div>
-      </div>
-      <%= cl_image_tag flat.photos.first.try(:path) || "", height: 72, width: 120, crop: :fill, class:"product-image hidden-xs" %>
-      <div class='product-body' >
-        <h3> <%= flat.title %> </h3>
-        <p> <%= flat.capacity %> </p>
-        <p> <%= flat.price_night %> </p>
-      </div>
-      <ul class="list-inline">
-        <li> <%= link_to '<i class="fa fa-pencil fa-lg" aria-hidden="true"></i>'.html_safe, edit_flat_path(flat)%> </li>
-        <li> <%=link_to '<i class="fa fa-trash fa-lg" aria-hidden="true"></i>'.html_safe, flat_path(flat), method: :delete, data: {confirm: "Are you sure?"}, class: "btn-small" %> </li>
-      </ul>
-   </div>
-  <%end%>
-</div>
+
+
+
