@@ -2,16 +2,15 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :flat
   has_and_belongs_to_many :services
+  validates :start_date, date: {
+    after_or_equal_to: Proc.new { |obj| obj.availability.start_date},
+    before_or_equal_to: Proc.new{ |obj| obj.availability.end_time}}
+  validates :end_date, date: {
+    after_or_equal_to: Proc.new { |obj| obj.availability.start_date},
+    before_or_equal_to: Proc.new{ |obj| obj.availability.end_time}}
 
-  validates :start_date, :end_date, presence: true
-  validate :end_date_is_greater_than_start_date
 
-  private
-  def end_date_is_greater_than_start_date
-    return if start_date.nil? && end_date.nil?
-
-    if start_date > end_date
-      errors.add(:start_date, "can't be greater than end date" )
-    end
+  def availability
+    self.flat.availabilities.first
   end
 end

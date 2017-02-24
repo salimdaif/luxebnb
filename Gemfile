@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
+gem 'date_validator'
 gem "geocoder"
 gem 'fullcalendar-rails'
 gem 'cloudinary'
