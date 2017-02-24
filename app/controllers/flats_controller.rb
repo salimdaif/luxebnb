@@ -4,7 +4,7 @@ class FlatsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@flats) do |flat, marker|
       marker.lat flat.latitude
       marker.lng flat.longitude
-      #marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+      marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
 
     if params[:search]
@@ -17,17 +17,18 @@ class FlatsController < ApplicationController
   def search
 
      @flats= Flat.search(params)
+
+     @hash = Gmaps4rails.build_markers(@flats) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
+      marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
    end
   def show
 
     @flat = Flat.find(params[:id])
     @available = Availability.find_by(flat_id: @flat.id)
-     # @hash = Gmaps4rails.build_markers(@flat)
-     # do |flat, marker|
-     #  marker.lat flat.latitude
-     #  marker.lng flat.longitude
-      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
-    # end
+     @flat_coordinates = { lat: @flat.latitude, lng: @flat.longitude }
   end
 
   def new
